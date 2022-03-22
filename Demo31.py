@@ -10,7 +10,7 @@ def countdown(n):
     for i in range(n):
         COUNT -= 1
 
-
+#what' s diffrent pool & process
 if __name__ == '__main__':
     pool = Pool(processes=SPLIT)
 
