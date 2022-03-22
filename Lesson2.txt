@@ -1,0 +1,137 @@
+import time
+
+COUNT = 100000000
+
+
+def countdown(n):
+    global COUNT
+    for i in range(n):
+        COUNT -= 1
+
+
+start = time.time()
+countdown(COUNT)
+end = time.time()
+
+print('Time taken in seconds ->', end - start)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import time
+from threading import Thread
+
+COUNT = 100000000
+
+
+def countdown(n):
+    global COUNT
+    for i in range(n):
+        COUNT -= 1
+
+
+SPLIT = 4
+threads = []
+for _ in range(SPLIT):
+    print(f"generate a thread with argument:{COUNT // SPLIT}")
+    t = Thread(target=countdown, args=(COUNT // SPLIT,))
+    threads.append(t)
+
+start = time.time()
+for t in threads:
+    print("start a thread")
+    t.start()
+for t in threads:
+    t.join()
+# countdown(COUNT)
+end = time.time()
+
+print('Time taken in seconds ->', end - start)
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+import time
+from multiprocessing import Process
+
+COUNT = 100000000
+SPLIT = 4
+
+
+def countdown(n):
+    global COUNT
+    for i in range(n):
+        COUNT -= 1
+
+
+if __name__ == '__main__':
+    start = time.time()
+    processes = []
+    for _ in range(SPLIT):
+        print(f"generate a process with args={COUNT // SPLIT}")
+        p = Process(target=countdown, args=(COUNT // SPLIT,))
+        processes.append(p)
+    for p in processes:
+        print("start a process")
+        p.start()
+    for p in processes:
+        p.join()
+    end = time.time()
+
+    print('Time taken in seconds ->', end - start)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+import time
+from multiprocessing import Pool
+
+COUNT = 100000000
+SPLIT = 4
+
+
+def countdown(n):
+    global COUNT
+    for i in range(n):
+        COUNT -= 1
+
+
+if __name__ == '__main__':
+    pool = Pool(processes=SPLIT)
+
+    start = time.time()
+    for _ in range(SPLIT):
+        print("start a pool async")
+        p = pool.apply_async(countdown, [COUNT // SPLIT])
+    pool.close()
+    pool.join()
+    end = time.time()
+    print('Time taken in seconds ->', end - start)
+
+
+https://wiki.python.org/moin/GlobalInterpreterLock
+
+pip install virtualenv virtualenvwrapper virtualenvwrapper-win
+
+
+C:\Users\Admin>pip list
+Package               Version
+--------------------- -------
+distlib               0.3.4
+filelock              3.6.0
+numpy                 1.22.3
+pandas                1.4.1
+pbr                   5.8.1
+pip                   22.0.4
+platformdirs          2.5.1
+python-dateutil       2.8.2
+pytz                  2022.1
+setuptools            60.10.0
+six                   1.16.0
+stevedore             3.5.0
+virtualenv            20.13.4
+virtualenv-clone      0.5.7
+virtualenvwrapper     4.8.4
+virtualenvwrapper-win 1.2.7
+
+
+cd c:\temp_phw  #切換路徑
+
+virtualenv env1  #創建虛擬環境
+env1\Scripts\activate  #啟動虛擬環境
+pip install tensorflow	#在虛擬環境中安裝套件
+deactivate	#關閉虛擬環境

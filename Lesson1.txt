@@ -1,0 +1,36 @@
+https://www.python.org/
+
+https://discuss.tensorflow.org/t/support-python-3-10/124
+
+https://pypi.org/
+where python  //檢查是否安裝python
+
+https://www.python.org/ftp/python/3.9.11/python-3.9.11-amd64.exe
+
+Add Python 3.9 to PATH //選則該選項
+Custom Installation //安裝選擇自訂
+
+C:\Python39 //簡化安裝路徑
+
+Disable path length limit
+
+close all cmd, re-open cmd
+
+set path //檢視路徑
+
+pip list //檢視pip版本
+
+python //執行phthon
+
+quit() -- 離開
+
+pip install --upgrade setuptools //利用pip安裝setuptools
+
+python -m pip install --upgrade pip
+
+pip list
+
+Package    Version
+---------- -------
+pip        22.0.4
+setuptools 60.10.0
