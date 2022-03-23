@@ -135,3 +135,18 @@ virtualenv env1  #創建虛擬環境
 env1\Scripts\activate  #啟動虛擬環境
 pip install tensorflow	#在虛擬環境中安裝套件
 deactivate	#關閉虛擬環境
+
+
+mkvirtualenv env2
+pip install torch
+workon
+workon env2
+pip list
+deactivate
+
+
+C:\Users\Admin\Envs
+
+
+
+L1 = ["3TK"]
