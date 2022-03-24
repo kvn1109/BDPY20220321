@@ -37,7 +37,15 @@ class PM(Emp):
 # p1.startWork()
 # p1.endWork()
 
-employees = [RD(), PM(), RD(), RD(), PM()]
+# employees = [RD(), PM(), RD(), RD(), PM()]
+# for e in employees:
+#     e.startWork()
+#     e.endWork()
+
+employees = [RD(), None, PM(), RD(), RD(), PM(), 3.14, 500]
 for e in employees:
-    e.startWork()
-    e.endWork()
+    if isinstance(e, Emp):
+        e.startWork()
+        e.endWork()
+    else:
+        print(e, "is not an Emp type")

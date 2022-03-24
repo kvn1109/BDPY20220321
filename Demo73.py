@@ -1,0 +1,17 @@
+import pandas as pd
+
+pd1 = pd.Series([3, 1, 4, 5, 9, -2, 8])
+print(type(pd1))
+print(pd1)
+print(pd1.values)
+print(pd1.index)
+pd2 = pd.Series([4, 7, -5, 3], index=['nangang', 'taipei', 'banqiao', 'taoyuan'])
+print(pd2)
+print(pd2.values)
+print(pd2.index)
+print(pd1[1], pd2['taipei'])
+print(pd1[[1, 2, 3]])
+print(pd2[['nangang', 'taipei', 'banqiao']])
+print(pd1[pd1 > 4])
+print(pd2[pd2 > 0])
+print(pd2 ** 2)
